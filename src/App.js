@@ -1,21 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import * as ROUTES from './constants/routes';
 
 import './App.css';
 
-import Home from './pages/Home';
-import Destination from './pages/Destination';
-import Crew from './pages/Crew';
-import Technology from './pages/Technology';
+import { Home, Destination, Crew, Technology } from './pages';
 
 function App() {
   return (
       <Router>
           <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/destination' component={Destination}/>
-                <Route exact path='/crew' component={Crew}/>
-                <Route exact path='/technology' component={Technology}/>
+                <Route path={ROUTES.DESTINATION}>
+                    <Destination/>
+                </Route>
+                <Route path={ROUTES.CREW}>
+                    <Crew />
+                </Route>
+                <Route path={ROUTES.TECHNOLOGY}>
+                    <Technology />
+                </Route>
+                <Route path={ROUTES.HOME}>
+                    <Home />
+                </Route>
           </Switch>
       </Router>
   );
