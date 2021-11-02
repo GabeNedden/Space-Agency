@@ -3,7 +3,7 @@ import { Link as ReachRouterLink } from 'react-router-dom';
 import {
   Container,
   Group,
-  Background,
+  Header,
   Dropdown,
   Picture,
   Link,
@@ -17,27 +17,23 @@ import {
   Text,
   Feature,
   Logo,
-} from './styles/navbar';
+} from './styles/header';
 
-export default function Navbar({ bg = true, children, ...restProps }) {
-  return bg ? (
-    <Background data-testid="navbar-bg" {...restProps}>
-      {children}
-    </Background>
-  ) : (
-    children
-  );
+export default function Header({ children, ...restProps }) {
+  return  <Header {...restProps}>
+            {children}
+          </Header>
 }
 
-Navbar.Frame = function NavbarFrame({ children, ...restProps }) {
+Header.Frame = function HeaderFrame({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 };
 
-Navbar.Group = function NavbarGroup({ children, ...restProps }) {
+Header.Group = function HeaderGroup({ children, ...restProps }) {
   return <Group {...restProps}>{children}</Group>;
 };
 
-Navbar.Logo = function NavbarLogo({ to, ...restProps }) {
+Header.Logo = function HeaderLogo({ to, ...restProps }) {
   return (
     <ReachRouterLink to={to}>
       <Logo {...restProps} />
@@ -45,7 +41,7 @@ Navbar.Logo = function NavbarLogo({ to, ...restProps }) {
   );
 };
 
-Navbar.Search = function NavbarSearch({ searchTerm, setSearchTerm, ...restProps }) {
+Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
   const [searchActive, setSearchActive] = useState(false);
 
   return (
@@ -64,38 +60,38 @@ Navbar.Search = function NavbarSearch({ searchTerm, setSearchTerm, ...restProps 
   );
 };
 
-Navbar.Profile = function NavbarProfile({ children, ...restProps }) {
+Header.Profile = function HeaderProfile({ children, ...restProps }) {
   return <Profile {...restProps}>{children}</Profile>;
 };
 
-Navbar.Feature = function NavbarFeature({ children, ...restProps }) {
+Header.Feature = function HeaderFeature({ children, ...restProps }) {
   return <Feature>{children}</Feature>;
 };
 
-Navbar.Picture = function NavbarPicture({ src, ...restProps }) {
+Header.Picture = function HeaderPicture({ src, ...restProps }) {
   return <Picture {...restProps} src={`/images/users/${src}.png`} />;
 };
 
-Navbar.Dropdown = function NavbarDropdown({ children, ...restProps }) {
+Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
   return <Dropdown {...restProps}>{children}</Dropdown>;
 };
 
-Navbar.TextLink = function NavbarTextLink({ children, ...restProps }) {
+Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
 };
 
-Navbar.PlayButton = function NavbarPlayButton({ children, ...restProps }) {
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
   return <PlayButton {...restProps}>{children}</PlayButton>;
 };
 
-Navbar.FeatureCallOut = function NavbarFeatureCallOut({ children, ...restProps }) {
+Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }) {
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>;
 };
 
-Navbar.Text = function NavbarText({ children, ...restProps }) {
+Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
 };
 
-Navbar.ButtonLink = function NavbarButtonLink({ children, ...restProps }) {
+Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
   return <ButtonLink {...restProps}>{children}</ButtonLink>;
 };
